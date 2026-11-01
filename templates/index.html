@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyrox - The Ultimate Discord Music Bot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-[#0f1117] text-gray-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between px-8 py-5 border-b border-gray-800 bg-[#161922]/80 backdrop-blur sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center font-bold text-xl shadow-lg shadow-indigo-600/30">V</div>
+            <span class="text-xl font-extrabold tracking-wide text-white">VYROX</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
+            <a href="#features" class="hover:text-indigo-400 transition">Features</a>
+            <a href="#commands" class="hover:text-indigo-400 transition">Commands</a>
+            <a href="#stats" class="hover:text-indigo-400 transition">Stats</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            {% if user %}
+                <div class="flex items-center space-x-3 bg-gray-800/80 px-3 py-1.5 rounded-xl border border-gray-700">
+                    <img src="{{ user.avatar }}" class="w-7 h-7 rounded-full bg-indigo-500">
+                    <span class="text-sm font-semibold text-white">{{ user.username }}</span>
+                    <a href="/logout" class="text-xs text-red-400 hover:underline ml-2">Logout</a>
+                </div>
+            {% else %}
+                <a href="/login" class="px-4 py-2 text-sm font-semibold text-gray-300 hover:text-white transition">Login</a>
+            {% endif %}
+            <a href="/invite" class="px-5 py-2.5 text-sm font-semibold bg-indigo-600 hover:bg-indigo-500 rounded-xl transition shadow-lg shadow-indigo-600/20 flex items-center space-x-2">
+                <i class="fa-brands fa-discord"></i>
+                <span>Add to Server</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="max-w-6xl mx-auto px-6 py-24 text-center">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold mb-6">
+            <span class="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+            <span>High Fidelity Music Streaming Bot</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-black tracking-tight text-white mb-6">
+            The Ultimate <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">Music Experience</span> for Discord
+        </h1>
+        <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+            Vyrox brings crystal-clear audio, zero lag, advanced controls, and interactive panels straight to your voice channels.
+        </p>
+        <div class="flex justify-center space-x-4">
+            <a href="/invite" class="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition shadow-xl shadow-indigo-600/30 flex items-center space-x-3">
+                <i class="fa-brands fa-discord text-lg"></i>
+                <span>Add Vyrox to Discord</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Live Music Card Mockup -->
+    <section class="max-w-4xl mx-auto px-6 pb-20" id="features">
+        <div class="bg-[#161922] border border-gray-800 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span class="text-xs font-mono text-gray-500 ml-2">vynox-player-panel.embed</span>
+                </div>
+                <span class="text-xs px-2.5 py-1 bg-green-500/10 text-green-400 font-semibold rounded-lg border border-green-500/20">LIVE 324kbps</span>
+            </div>
+            <div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6 bg-[#0f1117] p-5 rounded-xl border border-gray-800/80">
+                <div class="w-24 h-24 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-3xl shadow-lg">
+                    🎵
+                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <h3 class="text-lg font-bold text-white">Blinding Lights — The Weeknd</h3>
+                    <p class="text-sm text-gray-400 mb-3">Requested by <span class="text-indigo-400">@User</span></p>
+                    <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden mb-2">
+                        <div class="bg-indigo-500 h-full w-2/3 rounded-full"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-gray-500 font-mono">
+                        <span>1:45</span>
+                        <span>3:20</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Section -->
+    <section class="max-w-5xl mx-auto px-6 pb-24" id="commands">
+        <h2 class="text-3xl font-bold text-center mb-10 text-white">Bot Commands</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-[#161922] p-6 rounded-xl border border-gray-800">
+                <h3 class="text-indigo-400 font-bold text-lg mb-2"><i class="fa-solid fa-music mr-2"></i> Playback Commands</h3>
+                <ul class="text-sm text-gray-300 space-y-2 font-mono">
+                    <li>,play &lt;song&gt; — Stream any track</li>
+                    <li>,skip — Skip current song</li>
+                    <li>,pause / ,resume — Control playback</li>
+                    <li>,volume &lt;0-100&gt; — Adjust volume</li>
+                </ul>
+            </div>
+            <div class="bg-[#161922] p-6 rounded-xl border border-gray-800">
+                <h3 class="text-purple-400 font-bold text-lg mb-2"><i class="fa-solid fa-list mr-2"></i> Queue & Voice</h3>
+                <ul class="text-sm text-gray-300 space-y-2 font-mono">
+                    <li>,queue — View upcoming tracks</li>
+                    <li>,shuffle — Shuffle queue order</li>
+                    <li>,join / ,leave — Voice management</li>
+                    <li>,stay247 — Toggle 24/7 mode</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 py-8 text-center text-sm text-gray-500 bg-[#161922]">
+        <p>&copy; 2026 Vyrox Music Bot. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
